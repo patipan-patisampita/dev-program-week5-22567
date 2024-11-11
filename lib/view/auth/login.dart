@@ -8,6 +8,8 @@ class LoginScreens extends StatefulWidget {
 }
 
 class _LoginScreensState extends State<LoginScreens> {
+  bool showPass = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -48,10 +50,61 @@ class _LoginScreensState extends State<LoginScreens> {
                   child: Column(
                     children: [
                       // ===== Enter field Email =====
-                      const TextField(),
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                            hintText: 'Enter your email or username',
+                            label: const Text('Email or username'),
+                            labelStyle: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 18,
+                                fontFamily: "verdana_regular",
+                                fontWeight: FontWeight.w400),
+                            prefixIcon: const Icon(Icons.email),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                borderSide:
+                                    const BorderSide(color: Colors.grey)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                borderSide:
+                                    const BorderSide(color: Colors.grey))),
+                      ),
                       const SizedBox(height: 10.0),
-                      // ===== Enter field password =====
-                      const TextField(),
+                      // ===== Enter field password  const TextField(),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        obscureText: !showPass,
+                        decoration: InputDecoration(
+                            hintText: 'Enter your password',
+                            label: const Text('Password'),
+                            labelStyle: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 18,
+                                fontFamily: "verdana_regular",
+                                fontWeight: FontWeight.w400),
+                            prefixIcon: const Icon(Icons.vpn_key_sharp),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  showPass = !showPass;
+                                });
+                              },
+                              icon: Icon(
+                                showPass
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                borderSide:
+                                    const BorderSide(color: Colors.grey)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                borderSide:
+                                    const BorderSide(color: Colors.grey))),
+                      ),
                       const SizedBox(height: 10.0),
                       // ===== Button submit login =====
                       InkWell(
