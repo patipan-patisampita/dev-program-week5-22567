@@ -71,11 +71,10 @@ class _LoginScreensState extends State<LoginScreens> {
                               Text(
                                 "Sign In",
                                 style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  wordSpacing: 2,
-                                  color: Colors.white
-                                ),
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    wordSpacing: 2,
+                                    color: Colors.white),
                               ),
                             ],
                           ),
@@ -84,10 +83,30 @@ class _LoginScreensState extends State<LoginScreens> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 20.0),
                 // ===== Button Link Register =====
-                const Row(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don't have an account?"),
+                    const Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+                    InkWell(
+                      onTap: () {},
+                      child: const Text(
+                        ' Sign Up',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.orange,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
